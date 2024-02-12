@@ -1,6 +1,35 @@
 # Project Setup Guide
 
 This document provides an in-depth rationale for our choices in deploying a fault-tolerant and highly available Ceph distributed storage cluster, integrated with OpenStack, on heterogeneous commodity hardware. These choices have been carefully aligned with the intended learning outcomes (ILOs) of understanding the fundamental concepts of Cloud Computing (CC) and distributed systems, presenting specific concepts in building Cloud solutions, and grasping the fundamentals of CC technology enablers.
+Ceph is a highly scalable and high-performance distributed file system, designed to manage vast amounts of data across a range of applications and infrastructures. Here is a detailed overview:
+
+## Concept and Architecture
+
+Ceph diverges from traditional storage systems by combining processors and memory with disk drives. This design delegates low-level allocation to Object Storage Devices (OSDs) and separates I/O operations (read/write) from metadata operations (file open/close).
+It is designed to scale to hundreds of petabytes, addressing limitations of earlier systems by eliminating traditional file allocation tables.
+Ceph's architecture includes clients, a cluster of OSDs for storing all data and metadata, and a metadata server cluster managing the file system namespace.
+
+## Unique Features
+
+Decoupled Data and Metadata: By replacing allocation tables with a pseudo-random data distribution function (CRUSH), Ceph maximizes separation between data and metadata management.
+CRUSH Algorithm: Facilitates dynamic and reliable distribution of data across a heterogeneous cluster, ensuring data safety and optimizing resource utilization.
+OSD Intelligence: OSDs in Ceph are semi-autonomous, distributing data replication, failure detection, and recovery tasks, thus improving system reliability and scalability.
+
+## Performance
+
+Metadata Management: Ceph's dynamic distributed metadata cluster architecture dramatically enhances the scalability of metadata access and overall system performance.
+Client Operation: Clients interact directly with OSDs for file I/O, while metadata operations are handled by the metadata server cluster. This design improves system efficiency and response time.
+Ceph separates data synchronization (visibility to clients) from data safety (replication and durability), providing a balance between performance and reliability.
+
+## Integration and Use Cases
+
+Ceph is suitable for a range of general-purpose and scientific computing file system workloads.
+Future Extensions: Planned improvements include enhanced security protocols, POSIX IO extensions for high-performance computing, and quality of service features for storage management.
+
+## Challenges and Solutions
+
+Scalability and Efficiency: The design of Ceph addresses the challenges of scalability and efficient metadata management in distributed file systems, surpassing existing systems in terms of performance.
+Data Distribution: The use of CRUSH and intelligent OSDs allows Ceph to effectively manage data distribution and replication, crucial for large-scale systems.
 
 ## Ubuntu Version: 22.04 LTS (Jammy Jellyfish)
 
