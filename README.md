@@ -62,7 +62,16 @@ Compatibility with Ubuntu and Ceph: Ensuring the OpenStack version works seamles
 Feature Analysis: Assessing the features of different OpenStack versions, focusing on those critical for your project.
 Community and Vendor Endorsements: Looking for recommendations from the OpenStack community or vendors regarding stable and well-supported versions.
 
--   **Why**: OpenStack Zed, compatible with Ubuntu 22.04 LTS, represents the cutting edge of cloud storage solutions. Its integration with Ceph underscores the essential principles of service orientation and deployment models in cloud computing (ILO2). The choice of Zed facilitates the understanding of the latest developments in cloud infrastructure, essential for grasping the evolving economic and social trends in cloud computing (ILO2).
+-   **Why**: OpenStack Zed, compatible with Ubuntu 22.04 LTS, represents the cutting edge of cloud computing management platforms. Its integration with Ceph underscores the essential principles of service orientation and deployment models in cloud computing (ILO2). The choice of Zed facilitates the understanding of the latest developments in cloud infrastructure, essential for grasping the evolving economic and social trends in cloud computing (ILO2).
+
+## Note
+
+The following graphic summarises Ceph versions, the UCA (or Distro), and LTS releases (including the compatibility of each of OpenStack, Ceph and Ubuntu per column line)
+
+![image](https://github.com/AyoubMaimmadi/SP24-CSC537401-Project_1/assets/46249118/ee7d227c-67d5-4f8e-a6c1-fdfbcdb4f94d)
+
+When we reviewed the Ceph Quincy Release Notes and Ubuntu's Ceph Documentation we confirmed that Ceph Quincy v17.2.7 is compatible with Ubuntu 22.04 LTS as well. Ensuring compatibility between Ceph, OpenStack, and the operating system is crucial for a stable and efficient cloud environment. Thoroughly reviewing official documentation, engaging with community forums, and conducting tests in controlled environments are effective strategies for validating the compatibility of these versions.
+
 -   **Documentation**: [OpenStack Releases](https://www.openstack.org/software/)
 -   **OpenStack Packages for Ubuntu**: [OpenStack Packages](https://docs.openstack.org/install-guide/environment-packages-ubuntu.html)
 
