@@ -1,7 +1,7 @@
 # Project Setup Guide
 
 This document provides an in-depth rationale for our choices in deploying a fault-tolerant and highly available Ceph distributed storage cluster, integrated with OpenStack, on heterogeneous commodity hardware. These choices have been carefully aligned with the intended learning outcomes (ILOs) of understanding the fundamental concepts of Cloud Computing (CC) and distributed systems, presenting specific concepts in building Cloud solutions, and grasping the fundamentals of CC technology enablers.
-Ceph is a highly scalable and high-performance distributed file system, designed to manage vast amounts of data across a range of applications and infrastructures. Here is a detailed overview:
+Ceph is a highly scalable and high-performance distributed file system, designed to manage vast amounts of data across a range of applications and infrastructures.
 
 ## Concept and Architecture
 
