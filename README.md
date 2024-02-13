@@ -33,7 +33,7 @@ Data Distribution: The use of CRUSH and intelligent OSDs allows Ceph to effectiv
 
 ## Ubuntu Version: 22.04 LTS (Jammy Jellyfish)
 
--  **Evidences to consider**:
+-   **Evidences to consider**:
 
 Compatibility: Checking Ubuntu’s release notes and Ceph/OpenStack documentation for compatibility with specific Ubuntu versions.
 Long-Term Support (LTS) Releases: LTS versions offer extended support, making them a preferred choice for stability and long-term maintenance.
@@ -42,27 +42,25 @@ Security and Stability Updates: Reviewing the release and patch history for insi
 -   **Why**: Ubuntu 22.04 LTS, with its long-term support until April 2027, offers a stable and secure environment essential for a production-grade deployment. Its modern kernel and software compatibility are pivotal in understanding the interplay of operating systems in cloud computing and distributed systems (ILO1). Moreover, its support for advanced features in Ceph and OpenStack facilitates an exploration of computing as a utility and service models like IaaS, crucial in comprehending cloud service orientations (ILO2).
 -   **Documentation**: [Ubuntu Release Cycle](https://ubuntu.com/about/release-cycle)
 
-## Ceph Version: Quincy (v17.2.x) specifically: (v17.2.7)
+## Ceph Version: Quincy (v17.2.x)
 
--  **Evidence to Consider:**
+-   **Evidence to Consider:**
 
 Release Compatibility: Ensuring that the chosen Ceph version is compatible with the selected Ubuntu version.
 Feature Set and Improvements: Analyzing the features of different Ceph versions and how they align with project requirements.
 Performance Metrics: Looking for performance benchmarks comparing different Ceph versions.
 
--   **Why**: Quincy v17.2.7 aligns perfectly with Ubuntu 22.04 LTS. This version of Ceph, known for its enhanced performance, security, and usability, is critical for understanding distributed file systems (ILO3). Its selection is strategic for its latest features that support learning about virtualization, containerization, and orchestration - key enablers in cloud computing technology (ILO3). This choice also mirrors the lifecycle of Ubuntu 22.04 LTS, ensuring long-term stability and support.
+-   **Why**: Quincy v17.2.x aligns perfectly with Ubuntu 22.04 LTS. This version of Ceph, known for its enhanced performance, security, and usability, is critical for understanding distributed file systems (ILO3). Its selection is strategic for its latest features that support learning about virtualization, containerization, and orchestration - key enablers in cloud computing technology (ILO3). This choice also mirrors the lifecycle of Ubuntu 22.04 LTS, ensuring long-term stability and support.
 -   **Supported Ceph Version**: [Supported Ceph Versions](https://ubuntu.com/ceph/docs/supported-ceph-versions)
 -   **Documentation**: [Ceph Quincy Release Notes](https://docs.ceph.com/en/latest/releases/quincy/)
 
 ## OpenStack Version: Zed
 
--  **Evidence to Consider:**
+-   **Evidence to Consider:**
 
-Compatibility with Ubuntu and Ceph: Ensuring the OpenStack version works seamlessly with the chosen Ubuntu and Ceph versions.
-Feature Analysis: Assessing the features of different OpenStack versions, focusing on those critical for your project.
-Community and Vendor Endorsements: Looking for recommendations from the OpenStack community or vendors regarding stable and well-supported versions.
+We previously confirmed the compatibility of both Ceph Quincy and OpenStack Zed with Ubuntu 22.04 LTS. However, upon further review, we realized the critical importance of directly verifying the compatibility between Ceph Quincy and OpenStack Zed to ensure seamless integration and functionality of our cloud infrastructure. This oversight was highlighted by our professor, underscoring the potential risks of integration issues that could necessitate a reassessment of our chosen versions.
 
--   **Why**: OpenStack Zed, compatible with Ubuntu 22.04 LTS, represents the cutting edge of cloud computing management platforms. Its integration with Ceph underscores the essential principles of service orientation and deployment models in cloud computing (ILO2). The choice of Zed facilitates the understanding of the latest developments in cloud infrastructure, essential for grasping the evolving economic and social trends in cloud computing (ILO2).
+Documentation and tutorials suggest that OpenStack Zed and Ceph Quincy are intended to work together, as part of a cloud computing infrastructure leveraging Ceph's storage solutions within an OpenStack environment​​​​​​. Specifically, guides for deploying a Charmed OpenStack cloud include setups using Ubuntu 22.04 LTS, OpenStack Zed, and Ceph Quincy, indicating a level of prepared integration and compatibility​​. [Evidence of Compatibility](https://docs.openstack.org/charm-guide/zed/getting-started/index.html)
 
 ## Note
 
@@ -70,7 +68,7 @@ The following graphic summarises Ceph versions, the UCA (or Distro), and LTS rel
 
 ![image](https://github.com/AyoubMaimmadi/SP24-CSC537401-Project_1/assets/46249118/ee7d227c-67d5-4f8e-a6c1-fdfbcdb4f94d)
 
-When we reviewed the Ceph Quincy Release Notes and [Ubuntu's Ceph Documentation](https://ubuntu.com/ceph/docs/supported-ceph-versions) we confirmed that Ceph Quincy v17.2.7 is compatible with Ubuntu 22.04 LTS as well. Ensuring compatibility between Ceph, OpenStack, and the operating system is crucial for a stable and efficient cloud environment. Thoroughly reviewing official documentation, engaging with community forums, and conducting tests in controlled environments are effective strategies for validating the compatibility of these versions.
+When we reviewed the Ceph Quincy Release Notes and [Ubuntu's Ceph Documentation](https://ubuntu.com/ceph/docs/supported-ceph-versions) we confirmed that Ceph Quincy v17.2.x is compatible with Ubuntu 22.04 LTS as well. Ensuring compatibility between Ceph, OpenStack, and the operating system is crucial for a stable and efficient cloud environment. Thoroughly reviewing official documentation, engaging with community forums, and conducting tests in controlled environments are effective strategies for validating the compatibility of these versions.
 
 -   **Documentation**: [OpenStack Releases](https://www.openstack.org/software/)
 -   **OpenStack Packages for Ubuntu**: [OpenStack Packages](https://docs.openstack.org/install-guide/environment-packages-ubuntu.html)
@@ -85,4 +83,4 @@ To ensure the successful deployment and management of our Ceph distributed stora
 
 ## Conclusion
 
-The selection of Ubuntu 22.04 LTS (Jammy Jellyfish), Ceph Quincy (v17.2.7), and OpenStack Zed provides a solid foundation for deploying a Ceph distributed storage cluster, fully integrated with OpenStack. This setup is not only aimed at achieving high availability and fault tolerance but also at comprehensively meeting the learning objectives related to cloud computing and distributed systems. The chosen versions ensure compatibility, stability, and access to the latest features, fostering an in-depth understanding of the technological, economic, and social dimensions of cloud computing. The selected key documentation resources and publications will guide our deployment, ensuring best practices are followed and the infrastructure is optimized for performance and reliability.
+The selection of Ubuntu 22.04 LTS (Jammy Jellyfish), Ceph Quincy (v17.2.x), and OpenStack Zed provides a solid foundation for deploying a Ceph distributed storage cluster, fully integrated with OpenStack. This setup is not only aimed at achieving high availability and fault tolerance but also at comprehensively meeting the learning objectives related to cloud computing and distributed systems. The chosen versions ensure compatibility, stability, and access to the latest features, fostering an in-depth understanding of the technological, economic, and social dimensions of cloud computing. The selected key documentation resources and publications will guide our deployment, ensuring best practices are followed and the infrastructure is optimized for performance and reliability.
