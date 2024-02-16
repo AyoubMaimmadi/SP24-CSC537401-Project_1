@@ -86,3 +86,35 @@ To ensure the successful deployment and management of our Ceph distributed stora
 ## Conclusion
 
 The selection of Ubuntu 22.04 LTS (Jammy Jellyfish), Ceph Quincy (v17.2.x), and OpenStack Zed provides a solid foundation for deploying a Ceph distributed storage cluster, fully integrated with OpenStack. This setup is not only aimed at achieving high availability and fault tolerance but also at comprehensively meeting the learning objectives related to cloud computing and distributed systems. The chosen versions ensure compatibility, stability, and access to the latest features, fostering an in-depth understanding of the technological, economic, and social dimensions of cloud computing. The selected key documentation resources and publications will guide our deployment, ensuring best practices are followed and the infrastructure is optimized for performance and reliability.
+
+# Milestone 2 Report: Ceph Storage Cluster Deployment
+
+## Ubuntu Installation Confirmation
+
+As part of the initial phase of our project, we have successfully installed Ubuntu 22.04 LTS (Jammy Jellyfish) on all three heterogeneous commodity machines allocated to our team in the Linux lab. This installation establishes a stable and secure foundation for deploying our Ceph distributed storage cluster, aligned with our project's requirements for a fault-tolerant and highly available system.
+
+### Installation Details
+
+-   **Ubuntu Version:** 22.04 LTS (Jammy Jellyfish)
+-   **Installation Date:** 2/14/2024
+
+## Suggested Ceph Storage Cluster Architecture
+
+Given the scope of our project and the need for simplicity in implementation, we propose the following simplified Ceph storage cluster architecture. This setup ensures a basic level of fault tolerance and high availability while being straightforward to deploy.
+
+### Proposed Architecture
+
+-   **1 Ceph Monitor (MON):** Deployed on Machine 1. Although a production environment recommends at least three MONs for quorum and redundancy, our simplified project scope allows for a single MON to suffice for learning purposes.
+-   **3 Ceph Object Storage Daemons (OSDs):** One OSD deployed on each machine. This setup ensures data is distributed across the cluster, leveraging Ceph's inherent data replication and fault tolerance capabilities.
+-   **1 Ceph Manager (MGR):** Co-located with the Ceph Monitor on Machine 1. The MGR provides essential cluster management and monitoring functionalities.
+
+### Components/Daemons to Install
+
+-   **On Machine 1:** Ceph-MON, Ceph-MGR
+-   **On Machines 2 and 3:** Ceph-OSD
+
+This architecture provides a balance between simplicity and the demonstration of Ceph's capabilities. It allows for the exploration of Ceph's distributed storage functionalities with minimal complexity, suitable for an educational project.
+
+### Conclusion
+
+This simplified architecture allows our team to focus on understanding and demonstrating the core functionalities of Ceph in a controlled environment. By reducing the complexity of the deployment, we can more effectively manage our learning objectives and project deliverables within the given timeframe.
