@@ -122,8 +122,6 @@ Given the scope of our project and the need for simplicity in implementation, we
 
 -   **What it does:** Ceph Object Storage Daemons (OSDs) are responsible for storing data, handling data replication, recovery, rebalancing, and providing some monitoring information to Ceph Monitors and Managers. Each OSD manages a local storage device (e.g., a hard disk or SSD) and participates in the Ceph cluster's network, serving client requests to read and write data. The OSDs are the backbone of the Ceph storage system, ensuring data redundancy, fault tolerance, and high availability.
 
-Each of these components plays a vital role in the functioning of a Ceph cluster, contributing to its scalability, reliability, and performance.
-
 ### Components/Daemons to Install
 
 -   **On Machine 1:** Ceph-MON, Ceph-MGR
