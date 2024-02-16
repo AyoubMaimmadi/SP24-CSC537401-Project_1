@@ -108,6 +108,22 @@ Given the scope of our project and the need for simplicity in implementation, we
 -   **3 Ceph Object Storage Daemons (OSDs):** One OSD deployed on each machine. This setup ensures data is distributed across the cluster, leveraging Ceph's inherent data replication and fault tolerance capabilities.
 -   **1 Ceph Manager (MGR):** Co-located with the Ceph Monitor on Machine 1. The MGR provides essential cluster management and monitoring functionalities.
 
+### Ceph Components Explanation
+
+#### Ceph-MON (Monitor)
+
+-   **What it does:** Ceph Monitor (MON) maintains a master copy of the cluster map, a critical component of the Ceph network that keeps track of all the metadata about the cluster state, including the OSD map (which OSDs are up and down), the PG map (placement group mappings), and the CRUSH map (a hierarchical layout of the cluster). The MON ensures that the cluster remains coherent by maintaining quorum among the cluster's nodes, making it essential for cluster management and state consensus.
+
+#### Ceph-MGR (Manager)
+
+-   **What it does:** Ceph Manager (MGR) provides additional monitoring and management capabilities to the Ceph cluster. It collects runtime metrics, provides dashboard interfaces for visualizing cluster status, and supports a range of management commands. The MGR is crucial for efficient cluster operation and performance monitoring, making cluster administration tasks easier and more straightforward.
+
+#### Ceph-OSD (Object Storage Daemon)
+
+-   **What it does:** Ceph Object Storage Daemons (OSDs) are responsible for storing data, handling data replication, recovery, rebalancing, and providing some monitoring information to Ceph Monitors and Managers. Each OSD manages a local storage device (e.g., a hard disk or SSD) and participates in the Ceph cluster's network, serving client requests to read and write data. The OSDs are the backbone of the Ceph storage system, ensuring data redundancy, fault tolerance, and high availability.
+
+Each of these components plays a vital role in the functioning of a Ceph cluster, contributing to its scalability, reliability, and performance.
+
 ### Components/Daemons to Install
 
 -   **On Machine 1:** Ceph-MON, Ceph-MGR
