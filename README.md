@@ -125,7 +125,7 @@ Given the scope of our project and the need for simplicity in implementation, we
 ### Components/Daemons to Install
 
 -   **On Machine 1:** Ceph-MON, Ceph-MGR
--   **On Machines 2 and 3:** Ceph-OSD
+-   **On Machines 1, 2 and 3:** Ceph-OSD
 
 This architecture provides a balance between simplicity and the demonstration of Ceph's capabilities. It allows for the exploration of Ceph's distributed storage functionalities with minimal complexity, suitable for an educational project.
 
