@@ -105,11 +105,58 @@ As part of the initial phase of our project, we have successfully installed Ubun
 -   **Ubuntu Version:** 22.04 LTS (Jammy Jellyfish)
 -   **Installation Date:** 2/14/2024
 
-## Suggested Ceph Storage Cluster Architecture
+## Suggested Ceph Storage Cluster Architecture if we had the opportunity to work with at least 7 nodes:
 
 Given the scope of our project and the need for simplicity in implementation, we propose the following simplified Ceph storage cluster architecture. This setup ensures a basic level of fault tolerance and high availability while being straightforward to deploy.
 
-### Proposed Architecture
+### Cluster Size and Composition:
+
+- Minimum of three nodes to ensure high availability and fault tolerance. In our case, we only have three nodes. (Check Final Proposed Architecture below)
+- Each node should have sufficient CPU, RAM, and storage capacity to handle the demands of the Ceph cluster.
+
+### Ceph Monitors (MONs):
+
+- Deploy at least three MONs for quorum and redundancy, distributed across different nodes. In our case, we only have three nodes. (Check Final Proposed Architecture below)
+- MONs are responsible for maintaining the master copy of the cluster map and ensuring coherency in the cluster.
+
+### Ceph Managers (MGRs):
+
+- Deploy at least two MGRs for high availability, ideally on separate nodes from MONs.In our case, we only have three nodes. (Check Final Proposed Architecture below)
+- MGRs provide additional monitoring and management capabilities to the cluster.
+
+### Ceph Object Storage Daemons (OSDs):
+
+- Deploy multiple OSDs, ideally at least one per node. In our case, we only have three nodes. (Check Final Proposed Architecture below)
+- OSDs are responsible for storing data, handling data replication, recovery, and rebalancing.
+
+### Ceph Metadata Servers (MDSs):
+
+- Deploy at least two MDSs if CephFS (Ceph Filesystem) is used. In our case, we only have three nodes. (Check Final Proposed Architecture below)
+- MDSs manage the file system namespace and metadata for CephFS.
+
+### Network Design:
+
+- Separate networks for public (client access) and cluster (internal communication) traffic.
+- Ensure high-bandwidth and low-latency networking.
+
+### Ceph Components/Daemons to Install
+
+#### On MON Nodes:
+
+- Install Ceph-MON to manage the cluster state and consensus.
+- Optionally, co-locate Ceph-MGR on MON nodes for management and monitoring.
+
+#### On OSD Nodes:
+
+- Install Ceph-OSD on each node managing a storage device.
+- Ensure each OSD node has a dedicated storage device (HDD/SSD) for Ceph.
+
+#### On MDS Nodes (if using CephFS):
+
+- Install Ceph-MDS on dedicated nodes or co-located with other daemons but ensure resource availability.
+
+
+### Final Proposed 3-Nodes Architecture
 
 -   **1 Ceph Monitor (MON):** Deployed on Machine 1. Although a production environment recommends at least three MONs for quorum and redundancy, our simplified project scope allows for a single MON to suffice for learning purposes.
 -   **3 Ceph Object Storage Daemons (OSDs):** One OSD deployed on each machine. This setup ensures data is distributed across the cluster, leveraging Ceph's inherent data replication and fault tolerance capabilities.
