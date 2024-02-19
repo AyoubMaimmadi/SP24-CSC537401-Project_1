@@ -3,9 +3,16 @@
 This document provides an in-depth rationale for our choices in deploying a fault-tolerant and highly available Ceph distributed storage cluster, integrated with OpenStack, on heterogeneous commodity hardware. These choices have been carefully aligned with the intended learning outcomes (ILOs) of understanding the fundamental concepts of Cloud Computing (CC) and distributed systems, presenting specific concepts in building Cloud solutions, and grasping the fundamentals of CC technology enablers.
 Ceph is a highly scalable and high-performance distributed file system, designed to manage vast amounts of data across a range of applications and infrastructures.
 
+Supported Ceph versions are associated with supported stable Ubuntu LTS releases:
+
+18.2.x (Reef) on Ubuntu 22.04 LTS (Jammy)
+17.2.x (Quincy) on Ubuntu 22.04 LTS (Jammy)
+
+
 ## Concept and Architecture
 
-Ceph diverges from traditional storage systems by combining processors and memory with disk drives. This design delegates low-level allocation to Object Storage Devices (OSDs) and separates I/O operations (read/write) from metadata operations (file open/close).
+Ceph diverges from traditional storage systems by combining processors and memory with disk drives. 
+This design delegates low-level allocation to Object Storage Devices (OSDs) and separates I/O operations (read/write) from metadata operations (file open/close).
 It is designed to scale to hundreds of petabytes, addressing limitations of earlier systems by eliminating traditional file allocation tables.
 Ceph's architecture includes clients, a cluster of OSDs for storing all data and metadata, and a metadata server cluster managing the file system namespace.
 
