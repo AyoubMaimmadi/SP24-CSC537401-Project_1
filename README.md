@@ -170,7 +170,7 @@ Given the scope of our project and the need for simplicity in implementation, we
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
-# Function to create an XML representation of the Ceph cluster architecture and component installation
+#Function to create an XML representation of the Ceph cluster architecture and component installation
 def create_xml_ceph_cluster_architecture():
     root = ET.Element("CephClusterArchitecture")
 
