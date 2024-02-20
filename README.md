@@ -190,11 +190,6 @@ Given the scope of our project and the need for simplicity in implementation, we
           +---------------------+
 
 
-
--   **1 Ceph Monitor (MON):** Deployed on Machine 1. Although a production environment recommends at least three MONs for quorum and redundancy, our simplified project scope allows for a single MON to suffice for learning purposes.
--   **3 Ceph Object Storage Daemons (OSDs):** One OSD deployed on each machine. This setup ensures data is distributed across the cluster, leveraging Ceph's inherent data replication and fault tolerance capabilities.
--   **1 Ceph Manager (MGR):** Co-located with the Ceph Monitor on Machine 1. The MGR provides essential cluster management and monitoring functionalities.
-
 ### Ceph Components Explanation
 
 #### Ceph-MON (Monitor)
