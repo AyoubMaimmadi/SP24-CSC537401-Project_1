@@ -165,7 +165,7 @@ Given the scope of our project and the need for simplicity in implementation, we
 ![WhatsApp Image 2024-02-20 at 17 04 31_8f712fc4](https://github.com/AyoubMaimmadi/SP24-CSC537401-Project_1/assets/46249118/ea5b7560-6f03-4c97-9e60-46d0295d7f77)
 
 
-'''python
+```python
 
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
@@ -215,7 +215,7 @@ try:
     print(xml_ceph_cluster_architecture)
 except Exception as e:
     print(f"An error occurred: {e}")
-'''
+```
 
 -   **1 Ceph Monitor (MON):** Deployed on Machine 1. Although a production environment recommends at least three MONs for quorum and redundancy, our simplified project scope allows for a single MON to suffice for learning purposes.
 -   **3 Ceph Object Storage Daemons (OSDs):** One OSD deployed on each machine. This setup ensures data is distributed across the cluster, leveraging Ceph's inherent data replication and fault tolerance capabilities.
