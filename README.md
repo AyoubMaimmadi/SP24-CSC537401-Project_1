@@ -158,64 +158,38 @@ Given the scope of our project and the need for simplicity in implementation, we
 
 ### Final Proposed 3-Nodes Architecture
 
-![image](https://github.com/AyoubMaimmadi/SP24-CSC537401-Project_1/assets/46249118/0bc5c490-0e69-4c69-8db0-c8c291c9abfb)
-
-**Here are the 3 machines ordered from the left to the right (1,2,3), the machine one the right was not captured but it's similar to the one on the left side**
-
-![WhatsApp Image 2024-02-20 at 17 04 31_8f712fc4](https://github.com/AyoubMaimmadi/SP24-CSC537401-Project_1/assets/46249118/ea5b7560-6f03-4c97-9e60-46d0295d7f77)
+**Here are the 3 machines (1,2,3), the machine on the right is similar to the one on the left side**
 
 
-```python
+          +---------------------+
+          |       Machine 1      |
+          |---------------------|
+          |    Ceph Monitor     |-----------------------------|
+          |      (MON)          |                             |
+          |    Ceph OSD (1)     |                             |
+          +---------------------+                             |
+                                                              |
+                                                              |
+                                                              |
+          +---------------------+                             |
+          |       Machine 2      |                            |
+          |---------------------|                             |
+          |    Ceph Manager     |-----------------------------{Switch 1}
+          |        (MGR 1)      |                             |
+          |    Ceph OSD (2)     |                             |
+          +---------------------+                             |
+                                                              |
+                                                              |
+                                                              |
+          +---------------------+                             |
+          |       Machine 3      |                            |
+          |---------------------|                             |
+          |    Ceph OSD (3)     |-----------------------------
+          |    Ceph Manager     |
+          |        (MGR2)       |
+          +---------------------+
 
-import xml.etree.ElementTree as ET
-from xml.dom import minidom
 
-#Function to create an XML representation of the Ceph cluster architecture and component installation
-def create_xml_ceph_cluster_architecture():
-    root = ET.Element("CephClusterArchitecture")
-
-    # Network Design
-    network_design = ET.SubElement(root, "NetworkDesign")
-    ET.SubElement(network_design, "NetworkType", name="Public", description="Separate network for client access")
-    ET.SubElement(network_design, "NetworkType", name="Cluster", description="Separate network for internal communication")
-    ET.SubElement(network_design, "Requirement", description="High-bandwidth and low-latency networking")
-
-    # Machines and their components
-    machines = ET.SubElement(root, "Machines")
-
-    # Machine 1
-    machine1 = ET.SubElement(machines, "Machine", id="1")
-    ET.SubElement(machine1, "Component", name="Ceph-MON", description="Manages cluster state and consensus")
-    ET.SubElement(machine1, "Component", name="Ceph-OSD", description="Stores data and manages storage devices")
-    ET.SubElement(machine1, "Component", name="Ceph-MGR", description="Provides monitoring and management capabilities")
-
-    # Machine 2
-    machine2 = ET.SubElement(machines, "Machine", id="2")
-    ET.SubElement(machine2, "Component", name="Ceph-OSD", description="Stores data and manages storage devices")
-    ET.SubElement(machine2, "Component", name="Ceph-MGR", description="Provides monitoring and management capabilities")
-
-    # Machine 3
-    machine3 = ET.SubElement(machines, "Machine", id="3")
-    ET.SubElement(machine3, "Component", name="Ceph-OSD", description="Stores data and manages storage devices")
-
-    # Ceph Components Explanation
-    components_explanation = ET.SubElement(root, "CephComponentsExplanation")
-    ET.SubElement(components_explanation, "Component", name="Ceph-MON", description="Maintains a master copy of the cluster map and ensures cluster coherency")
-    ET.SubElement(components_explanation, "Component", name="Ceph-MGR", description="Provides additional monitoring and management capabilities to the Ceph cluster")
-    ET.SubElement(components_explanation, "Component", name="Ceph-OSD", description="Responsible for storing data and managing local storage devices")
-
-    # Beautify and convert the tree to a string
-    rough_string = ET.tostring(root, 'utf-8')
-    reparsed = minidom.parseString(rough_string)
-    return reparsed.toprettyxml(indent="  ")
-
-# Create the XML diagram and print it
-try:
-    xml_ceph_cluster_architecture = create_xml_ceph_cluster_architecture()
-    print(xml_ceph_cluster_architecture)
-except Exception as e:
-    print(f"An error occurred: {e}")
-```
 
 -   **1 Ceph Monitor (MON):** Deployed on Machine 1. Although a production environment recommends at least three MONs for quorum and redundancy, our simplified project scope allows for a single MON to suffice for learning purposes.
 -   **3 Ceph Object Storage Daemons (OSDs):** One OSD deployed on each machine. This setup ensures data is distributed across the cluster, leveraging Ceph's inherent data replication and fault tolerance capabilities.
@@ -237,9 +211,9 @@ except Exception as e:
 
 ### Components/Daemons to Install
 
--   **On Machine 1:** Ceph-MON
--   **On Machine 2:** Ceph-MGR
--   **On Machines 1, 2 and 3:** Ceph-OSD, , Ceph-MGR
+-   **On Machine 1:** Ceph-MON,Ceph-OSD
+-   **On Machine 2:** Ceph-MGR,Ceph-OSD
+-   **On Machine 3:** Ceph-OSD,Ceph-MGR
 
 This architecture provides a balance between simplicity and the demonstration of Ceph's capabilities. It allows for the exploration of Ceph's distributed storage functionalities with minimal complexity, suitable for an educational project.
 
